@@ -2,11 +2,11 @@
 
 # 定义 UUID 及 伪装路径,请自行修改.(注意:伪装路径以 / 符号开始,为避免不必要的麻烦,请不要使用特殊符号.)
 base64 -d config > config.json
-UUID=${UUID:-'401467dc-7e6a-4db9-98ee-2075d06fbf08'}
-WS_PATH_A=${WS_PATH_A:-'/a'}
-WS_PATH_B=${WS_PATH_B:-'/b'}
-sed -i "s#UUID#$UUID#g;s#WS_PATH_A#${WS_PATH_A}#g;s#WS_PATH_B#${WS_PATH_B}#g" config.json
-sed -i "s#WS_PATH_A#${WS_PATH_A}#g;s#WS_PATH_B#${WS_PATH_B}#g" /etc/nginx/nginx.conf
+UUID=${UUID:-'de04add9-5c68-8bab-950c-08cd5320df18'}
+VMESS_WSPATH=${VMESS_WSPATH:-'/vmess'}
+VLESS_WSPATH=${VLESS_WSPATH:-'/vless'}
+sed -i "s#UUID#$UUID#g;s#VMESS_WSPATH#${VMESS_WSPATH}#g;s#VLESS_WSPATH#${VLESS_WSPATH}#g" config.json
+sed -i "s#VMESS_WSPATH#${VMESS_WSPATH}#g;s#VLESS_WSPATH#${VLESS_WSPATH}#g" /etc/nginx/nginx.conf
 
 # 伪装 v2ray 执行文件
 RELEASE_RANDOMNESS=$(tr -dc 'A-Za-z0-9' </dev/urandom | head -c 6)
